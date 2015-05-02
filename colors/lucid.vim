@@ -18,16 +18,23 @@ let g:colors_name = "lucid"
 
 " The Colors -----------------------------------------------
 " Define reusable colors
+"
+let s:lDarkGrey        = { "gui": "#1c1c1c", "cterm": "234" }
+
 let s:darkSlate        = { "gui": "#1f2428", "cterm": "234" }
 let s:slate            = { "gui": "#262c31", "cterm": "234" }
 let s:lightSlate       = { "gui": "#383b41", "cterm": "235" }
 let s:lighterSlate     = { "gui": "#404349", "cterm": "236" }
-let s:lightOrange      = { "gui": "#f0c674", "cterm": "236" }
-let s:orange           = { "gui": "#de935f", "cterm": "236" }
-let s:cyan             = { "gui": "#8abeb7", "cterm": "222" }
+let s:lightOrange      = { "gui": "#f0c674", "cterm": "222" }
+let s:orange           = { "gui": "#f07d41", "cterm": "202" }
+let s:cyan             = { "gui": "#8abeb7", "cterm": "109" }
+let s:lucidBlue        = { "gui": "#66d9ef", "cterm": "74" }
+let s:lucidPurple      = { "gui": "#bd5e8d", "cterm": "74" }
+let s:brightYellow     = { "gui": "#fbf7cd", "cterm": "230" }
+let s:darkPurple       = { "gui": "#a62d6a", "cterm": "230" }
 
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
-let s:almostWhite      = { "gui": "#c5c5c5", "cterm": "255" }
+let s:almostWhite      = { "gui": "#c7c7c7", "cterm": "188" }
 let s:almostBlack      = { "gui": "#111111", "cterm": "233" }
 let s:darkerGrey       = { "gui": "#282a2e", "cterm": "235" }
 let s:middleDarkGrey   = { "gui": "#777777", "cterm": "241" }
@@ -74,6 +81,8 @@ if &background == "dark"
   let s:faintRed   = s:darkPink
   let s:faintGreen = s:darkGreen
   let s:faintBlue  = s:darkBlue
+  let s:search     = s:lighterSlate
+  let s:function   = s:accent5
 else
   " Light theme
   let s:bg         = s:white
@@ -110,18 +119,18 @@ endfunction
 "}}}
 " Highlights - Vim >= 7 ------------------------------------{{{
 if version >= 700
-  call s:h("CursorLine",  { "bg": s:faint })
+  call s:h("CursorLine",    { "bg": s:faint })
   call s:h("CursorColumn",  { "bg": s:faint })
-  call s:h("MatchParen",  { "fg": s:accent1, "bg": s:faint, "gui": "underline" })
-  call s:h("Pmenu",       { "bg": s:faint })
-  call s:h("PmenuThumb",  { "bg": s:norm })
-  call s:h("PmenuSBar",   { "bg": s:subtle })
-  call s:h("PmenuSel",    { "bg": s:faintBlue })
-  call s:h("ColorColumn", { "bg": s:faintRed })
-  call s:h("SpellBad",    { "sp": s:normRed, "gui": "undercurl" })
-  call s:h("SpellCap",    { "sp": s:accent1, "gui": "undercurl" })
-  call s:h("SpellRare",   { "sp": s:normGreen, "gui": "undercurl" })
-  call s:h("SpellLocal",  { "sp": s:accent4, "gui": "undercurl" })
+  call s:h("MatchParen",    { "fg": s:accent1, "bg": s:faint, "gui": "underline" })
+  call s:h("Pmenu",         { "bg": s:faint })
+  call s:h("PmenuThumb",    { "bg": s:norm })
+  call s:h("PmenuSBar",     { "bg": s:subtle })
+  call s:h("PmenuSel",      { "bg": s:faintBlue })
+  call s:h("ColorColumn",   { "bg": s:faintRed })
+  call s:h("SpellBad",      { "sp": s:normRed, "gui": "undercurl" })
+  call s:h("SpellCap",      { "sp": s:accent1, "gui": "undercurl" })
+  call s:h("SpellRare",     { "sp": s:normGreen, "gui": "undercurl" })
+  call s:h("SpellLocal",    { "sp": s:accent4, "gui": "undercurl" })
   " hi! link CursorColumn	CursorLine
 
   " Use background for cterm Spell*, which does not support undercurl
@@ -138,13 +147,13 @@ call s:h("NonText",      { "fg": s:subtle })
 call s:h("Cursor",       { "fg": s:bg, "bg": s:accent3 })
 call s:h("Visual",       { "bg": s:faintBlue })
 call s:h("IncSearch",    { "bg": s:faintBlue })
-call s:h("Search",       { "bg": s:faintGreen })
-call s:h("StatusLine",   { "fg": s:norm, "bg": s:faint, "gui": "bold", "cterm": "bold" })
+call s:h("Search",       { "bg": s:search })
+call s:h("StatusLine",   { "fg": s:norm, "bg": s:faint })
 call s:h("StatusLineNC", { "fg": s:dimmed, "bg": s:faint })
 call s:h("SignColumn",   { "fg": s:norm, "bg": s:bg })
 call s:h("VertSplit",    { "fg": s:subtle, "bg": s:faint })
 call s:h("TabLine",      { "fg": s:dimmed, "bg": s:faint })
-call s:h("TabLineFill",  { "fg": s:darkSlate, "bg": s:darkSlate })
+call s:h("TabLineFill",  { "fg": s:lightBlue, "bg": s:bg })
 call s:h("TabLineSel",   { "gui": "bold", "cterm": "bold" })
 call s:h("Folded",       { "fg": s:comment, "bg": s:faint })
 call s:h("Directory",    { "fg": s:accent1 })
@@ -157,6 +166,7 @@ call s:h("DiffText",     { "bg": s:faintRed, "gui": "bold", "cterm": "bold" })
 call s:h("User1",        { "fg": s:bg, "bg": s:normGreen })
 call s:h("User2",        { "fg": s:bg, "bg": s:normRed })
 call s:h("User3",        { "fg": s:bg, "bg": s:normBlue })
+call s:h("Lucid1",       { "fg": s:accent5 })
 hi! link WildMenu     IncSearch
 hi! link FoldColumn   SignColumn
 hi! link WarningMsg   ErrorMsg
@@ -165,6 +175,7 @@ hi! link Question     MoreMsg
 hi! link ModeMsg      MoreMsg
 hi! link TabLineFill  StatusLineNC
 hi! link LineNr       NonText
+hi! link CursorLineNr Lucid1
 hi! link SpecialKey   NonText
 
 "}}}
@@ -174,12 +185,12 @@ call s:h("Comment",    { "fg": s:comment, "gui": "italic" })
 call s:h("Underlined", { "fg": s:accent1, "gui": "underline", "cterm": "underline" })
 call s:h("Type",       { "fg": s:accent3 })
 call s:h("String",     { "fg": s:accent2 })
-call s:h("Keyword",    { "fg": s:accent2, "gui": "bold", "cterm": "bold" })
+call s:h("Keyword",    { "fg": s:cyan })
 call s:h("Todo",       { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
-call s:h("Function",   { "fg": s:accent2, "gui": "bold", "cterm": "bold" })
-call s:h("Repeat",     { "fg": s:accent5, "gui": "bold", "cterm": "bold" })
+call s:h("Function",   { "fg": s:function, "gui": "bold" })
+call s:h("Assign",     { "fg": s:accent2, "gui": "bold" })
 call s:h("Access",     { "fg": s:accent5 })
-call s:h("Boolean",    { "fg": s:accent1 })
+call s:h("Boolean",    { "fg": s:lucidPurple })
 call s:h("Constant",    { "fg": s:cyan })
 hi! link Identifier  Function
 hi! link Statement   Type
@@ -187,6 +198,7 @@ hi! link Number      Constant
 hi! link Special     Constant
 hi! link PreProc     Constant
 hi! link Error       ErrorMsg
+hi! link Repeat      Assign
 
 "}}}
 " Highlights - HTML ----------------------------------------{{{
@@ -216,10 +228,15 @@ hi! link javaScriptNull    Constant
 hi! link javaScriptBraces  Normal
 
 " Highlights - CoffeeScript ----------------------------------------{{{
-hi! link coffeeDotAccess  Access
-hi! link coffeeKeyword    Keyword
-hi! link coffeeRepeat     Repeat
-hi! link coffeeBoolean    Boolean
+hi! link coffeeDotAccess      Access
+hi! link coffeeKeyword        Keyword
+hi! link coffeeRepeat         Repeat
+hi! link coffeeBoolean        Boolean
+hi! link coffeeObjAssign      Assign
+hi! link coffeeSpecialIndent  Repeat
+hi! link coffeeStatement      Constant
+hi! link coffeeConditional    Keyword
+
 "}}}
 " Highlights - Help ----------------------------------------{{{
 hi! link helpExample         String
