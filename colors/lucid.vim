@@ -16,6 +16,17 @@ endif
 " Declare theme name
 let g:colors_name = "lucid"
 
+" FlatUI Colors --------------------------------------------{{{
+" Url: http://flatuicolors.com/
+" Note: Cterm colors not optimized
+
+let s:wetAsphalt      = { "gui": "#34495e", "cterm": "59" }
+let s:midnightBlue    = { "gui": "#2c3e50", "cterm": "23" }
+" }}}
+
+" Lucid Custom Colors --------------------------------------{{{
+
+
 " The Colors -----------------------------------------------
 " Define reusable colors
 "
@@ -32,6 +43,11 @@ let s:lucidBlue        = { "gui": "#66d9ef", "cterm": "74" }
 let s:lucidPurple      = { "gui": "#bd5e8d", "cterm": "74" }
 let s:brightYellow     = { "gui": "#fbf7cd", "cterm": "230" }
 let s:darkPurple       = { "gui": "#a62d6a", "cterm": "230" }
+let s:dGreen           = { "gui": "#27ae60", "cterm": "76" }
+let s:lGreen           = { "gui": "#2ecc71", "cterm": "149" }
+let s:lightRed         = { "gui": "#e74c3c", "cterm": "167" }
+let s:darkRed          = { "gui": "#c0392b", "cterm": "160" }
+let s:lOrange          = { "gui": "#f39c12", "cterm": "214" }
 
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
 let s:almostWhite      = { "gui": "#c7c7c7", "cterm": "188" }
@@ -52,7 +68,7 @@ let s:middleDarkBlue   = { "gui": "#538192", "cterm": "24"  }
 let s:middleLightBlue  = { "gui": "#9FD3E6", "cterm": "116" }
 let s:lightBlue        = { "gui": "#CBE4EE", "cterm": "195" }
 
-let s:darkGreen        = { "gui": "#5F5F00", "cterm": "58"  }
+let s:darkGreen        = { "gui": "#78AB46", "cterm": "58"  }
 let s:middleDarkGreen  = { "gui": "#739200", "cterm": "64"  }
 let s:middleLightGreen = { "gui": "#B1D631", "cterm": "149" }
 let s:lightGreen       = { "gui": "#BBFFAA", "cterm": "157" }
@@ -75,11 +91,11 @@ if &background == "dark"
   let s:accent3    = s:norm
   let s:accent4    = s:lightTan
   let s:accent5    = s:orange
-  let s:normRed    = s:middleLightPink
+  let s:normRed    = s:darkRed
   let s:normGreen  = s:middleLightGreen
   let s:normBlue   = s:middleLightBlue
-  let s:faintRed   = s:darkPink
-  let s:faintGreen = s:darkGreen
+  let s:faintRed   = s:lightRed
+  let s:faintGreen = s:dGreen
   let s:faintBlue  = s:darkBlue
   let s:search     = s:lighterSlate
   let s:function   = s:accent5
@@ -157,12 +173,12 @@ call s:h("TabLineFill",  { "fg": s:lightBlue, "bg": s:bg })
 call s:h("TabLineSel",   { "gui": "bold", "cterm": "bold" })
 call s:h("Folded",       { "fg": s:comment, "bg": s:faint })
 call s:h("Directory",    { "fg": s:accent1 })
-call s:h("Title",        { "fg": s:accent4, "gui": "bold", "cterm": "bold" })
+call s:h("Title",        { "fg": s:accent4, "cterm": "bold" })
 call s:h("ErrorMsg",     { "bg": s:faintRed })
 call s:h("DiffAdd",      { "bg": s:faintGreen })
-call s:h("DiffChange",   { "bg": s:faintRed })
+call s:h("DiffChange",   { "bg": s:lOrange })
 call s:h("DiffDelete",   { "fg": s:normRed, "bg": s:faintRed })
-call s:h("DiffText",     { "bg": s:faintRed, "gui": "bold", "cterm": "bold" })
+call s:h("DiffText",     { "bg": s:faintRed, "cterm": "bold" })
 call s:h("User1",        { "fg": s:bg, "bg": s:normGreen })
 call s:h("User2",        { "fg": s:bg, "bg": s:normRed })
 call s:h("User3",        { "fg": s:bg, "bg": s:normBlue })
@@ -187,8 +203,8 @@ call s:h("Type",       { "fg": s:accent3 })
 call s:h("String",     { "fg": s:accent2 })
 call s:h("Keyword",    { "fg": s:cyan })
 call s:h("Todo",       { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
-call s:h("Function",   { "fg": s:function, "gui": "bold" })
-call s:h("Assign",     { "fg": s:accent2, "gui": "bold" })
+call s:h("Function",   { "fg": s:function })
+call s:h("Assign",     { "fg": s:accent2 })
 call s:h("Access",     { "fg": s:accent5 })
 call s:h("Boolean",    { "fg": s:lucidPurple })
 call s:h("Constant",    { "fg": s:cyan })
@@ -227,6 +243,8 @@ hi! link javaScriptValue   Constant
 hi! link javaScriptNull    Constant
 hi! link javaScriptBraces  Normal
 
+"}}}
+
 " Highlights - CoffeeScript ----------------------------------------{{{
 hi! link coffeeDotAccess      Access
 hi! link coffeeKeyword        Keyword
@@ -247,5 +265,11 @@ hi! link helpHyperTextJump   Underlined
 hi! link helpURL             Underlined
 
 "}}}
+
+" Highlights - Signify -------------------------------------{{{
+call s:h("SignifySignAdd",    { "bg": s:bg, "fg": s:faintGreen })
+call s:h("SignifySignDelete", { "bg": s:bg, "fg": s:faintRed   })
+call s:h("SignifySignChange", { "bg": s:bg, "fg": s:lOrange    })
+" }}}
 
 " vim: fdm=marker:sw=2:sts=2:et
