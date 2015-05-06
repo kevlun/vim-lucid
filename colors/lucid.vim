@@ -20,8 +20,26 @@ let g:colors_name = "lucid"
 " Url: http://flatuicolors.com/
 " Note: Cterm colors not optimized
 
-let s:wetAsphalt      = { "gui": "#34495e", "cterm": "59" }
-let s:midnightBlue    = { "gui": "#2c3e50", "cterm": "23" }
+let s:wetasphalt   = { "gui": "#34495e", "cterm": "59"  }
+let s:midnightblue = { "gui": "#2c3e50", "cterm": "23"  }
+let s:amethyst     = { "gui": "#9b59b6", "cterm": "133" }
+let s:wisteria     = { "gui": "#8e44ad", "cterm": "97"  }
+let s:peterriver   = { "gui": "#3498db", "cterm": "68"  }
+let s:belizehole   = { "gui": "#2980b9", "cterm": "31"  }
+let s:emerald      = { "gui": "#2ecc71", "cterm": "41"  }
+let s:nephritis    = { "gui": "#27ae60", "cterm": "35"  }
+let s:turquoise    = { "gui": "#1abc9c", "cterm": "37"  }
+let s:greensea     = { "gui": "#16a085", "cterm": "36"  }
+let s:concrete     = { "gui": "#95a5a6", "cterm": "109" }
+let s:asbestos     = { "gui": "#7f8c8d", "cterm": "102" }
+let s:clouds       = { "gui": "#ecf0f1", "cterm": "231" }
+let s:silver       = { "gui": "#bdc3c7", "cterm": "152" }
+let s:alizarin     = { "gui": "#e74c3c", "cterm": "167" }
+let s:pomegranate  = { "gui": "#c0392b", "cterm": "130" }
+let s:carrot       = { "gui": "#e67e22", "cterm": "172" }
+let s:pumpkin      = { "gui": "#d35400", "cterm": "166" }
+let s:sunflower    = { "gui": "#f1c40f", "cterm": "220" }
+let s:orange       = { "gui": "#f39c12", "cterm": "214" }
 " }}}
 
 " Lucid Custom Colors --------------------------------------{{{
@@ -173,7 +191,7 @@ call s:h("TabLineFill",  { "fg": s:lightBlue, "bg": s:bg })
 call s:h("TabLineSel",   { "gui": "bold", "cterm": "bold" })
 call s:h("Folded",       { "fg": s:comment, "bg": s:faint })
 call s:h("Directory",    { "fg": s:accent1 })
-call s:h("Title",        { "fg": s:accent4, "cterm": "bold" })
+call s:h("Title",        { "fg": s:accent2, "cterm": "bold" })
 call s:h("ErrorMsg",     { "bg": s:faintRed })
 call s:h("DiffAdd",      { "bg": s:faintGreen })
 call s:h("DiffChange",   { "bg": s:lOrange })
@@ -244,7 +262,6 @@ hi! link javaScriptNull    Constant
 hi! link javaScriptBraces  Normal
 
 "}}}
-
 " Highlights - CoffeeScript ----------------------------------------{{{
 hi! link coffeeDotAccess      Access
 hi! link coffeeKeyword        Keyword
@@ -265,7 +282,6 @@ hi! link helpHyperTextJump   Underlined
 hi! link helpURL             Underlined
 
 "}}}
-
 " Highlights - Signify -------------------------------------{{{
 call s:h("SignifySignAdd",    { "bg": s:bg, "fg": s:faintGreen })
 call s:h("SignifySignDelete", { "bg": s:bg, "fg": s:faintRed   })
