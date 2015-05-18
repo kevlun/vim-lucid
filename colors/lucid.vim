@@ -188,25 +188,27 @@ call s:h("Search",       { "bg": s:shade, "fg": s:norm })
 call s:h("StatusLine",   { "fg": s:norm, "bg": s:faint })
 call s:h("StatusLineNC", { "fg": s:dimmed, "bg": s:faint })
 call s:h("SignColumn",   { "fg": s:norm, "bg": s:bg })
-call s:h("VertSplit",    { "fg": s:subtle, "bg": s:bg })
+call s:h("VertSplit",    { "fg": s:subtle, "bg": s:faint })
 call s:h("TabLine",      { "fg": s:dimmed, "bg": s:faint })
 call s:h("TabLineFill",  { "fg": s:lightBlue, "bg": s:bg })
 call s:h("TabLineSel",   { "gui": "bold", "cterm": "bold" })
 call s:h("Folded",       { "fg": s:comment, "bg": s:faint })
 call s:h("Directory",    { "fg": s:accent1 })
 call s:h("Title",        { "fg": s:accent2, "cterm": "bold" })
-call s:h("ErrorMsg",     { "bg": s:faintRed })
-call s:h("DiffAdd",      { "bg": s:faintGreen })
-call s:h("DiffChange",   { "bg": s:lOrange })
+call s:h("ErrorMsg",     { "fg": s:diffRed })
+call s:h("WarningMsg",   { "fg": s:diffOrange })
+call s:h("DiffAdd",      { "bg": s:diffGreen })
+call s:h("DiffChange",   { "bg": s:diffOrange })
 call s:h("DiffDelete",   { "fg": s:normRed, "bg": s:faintRed })
 call s:h("DiffText",     { "bg": s:faintRed, "cterm": "bold" })
 call s:h("CursorLineNr", { "fg": s:asbestos, "bg": s:faint })
-call s:h("User1",        { "fg": s:bg, "bg": s:normGreen })
-call s:h("User2",        { "fg": s:bg, "bg": s:normRed })
-call s:h("User3",        { "fg": s:bg, "bg": s:normBlue })
+call s:h("User1",        { "fg": s:white, "bg": s:diffGreen })
+call s:h("User2",        { "fg": s:normBlue, "bg": s:faint })
+call s:h("User3",        { "fg": s:diffOrange, "bg": s:faint })
+call s:h("User4",        { "fg": s:diffRed, "bg": s:faint })
 hi! link WildMenu     IncSearch
 hi! link FoldColumn   SignColumn
-hi! link WarningMsg   ErrorMsg
+" hi! link WarningMsg   ErrorMsg
 hi! link MoreMsg      Title
 hi! link Question     MoreMsg
 hi! link ModeMsg      MoreMsg
@@ -288,6 +290,10 @@ hi! link helpURL             Underlined
 call s:h("SignifySignAdd",    { "bg": s:bg, "fg": s:diffGreen })
 call s:h("SignifySignDelete", { "bg": s:bg, "fg": s:diffRed   })
 call s:h("SignifySignChange", { "bg": s:bg, "fg": s:diffOrange    })
+" }}}
+" Highlights - Syntastic -------------------------------------{{{
+call s:h("SyntasticErrorSign",    { "bg": s:bg, "fg": s:diffRed })
+call s:h("SyntasticWarningSign", { "bg": s:bg, "fg": s:diffOrange   })
 " }}}
 
 " vim: fdm=marker:sw=2:sts=2:et
